@@ -1,0 +1,8 @@
+{
+    "ip" : "172.16.250.2",
+    "port" : "1721",
+    "service_name" : "DCMSDSV",
+    "user" : "admprod",
+    "password" : "ad0dpvit2ad1600d#V",
+    "mode": "default"
+}

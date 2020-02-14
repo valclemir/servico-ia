@@ -1,0 +1,8 @@
+
+{
+	"config":{
+		"timesleep": 3600, 
+		"quantidadeFichasProcessamento": 50000
+	}
+}
+
