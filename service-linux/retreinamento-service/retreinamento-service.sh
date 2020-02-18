@@ -27,9 +27,13 @@ if [[ -e $DIRECTORYTOEXEC ]]; then
     print "Run Files"
     while [[ true ]]; do
             sleep $TIMESLEEP;
+            systemctl stop inferencia
+
             FILESPY=$DIR/main_train.py
             print "RNA $FILESPY"
             execTo $FILESPY $FILELOG & #@ Roda em paralelo
+
+            systemctl start inferencia 
             
     done;
 else

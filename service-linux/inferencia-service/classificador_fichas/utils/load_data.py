@@ -52,7 +52,9 @@ def load_data_prod():
     # Database connection
     conn = connect_db()
 
-    sql_string = (f"""select * from TBIA_FIC_REPO_MODELO WHERE ROWNUM <= {read_config_service()['config']['quantidadeFichasProcessamento']}""")
+    sql_string = (f"""SELECT * FROM TBIA_FIC_REPO_MODELO
+                      WHERE NR_FICHA IN (SELECT NR_FICHA FROM TBIA_FIC_CONTROLE WHERE ST_EXTRACAO = 1  AND ST_INFERENCIA = 0 AND ST_CLASSIFICACAO = 0)
+                      AND ROWNUM <= {read_config_service()['config']['quantidadeFichasProcessamento']}""")
 
     # Load table to a DataFrame
     df = pd.DataFrame()
